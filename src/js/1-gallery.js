@@ -1,3 +1,4 @@
+import Simplelightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const images = [
@@ -80,4 +81,3 @@ const markup = images
 
 pics.insertAdjacentHTML('afterbegin', markup);
 const lightbox = new Simplelightbox('.gallery');
-import Simplelightbox from 'simplelightbox';
