@@ -73,7 +73,7 @@ const markup = images
   .map(image => {
     return `<li class="gallery-item">
   <a class="gallery-link" href="large-image.jpg">
-    <img class="gallery-image" src="small-image.jpg" alt="Image description" />
+    <img class="gallery-image" src="${image.preview}" alt="${image.description}" />
   </a>
 </li>`;
   })
