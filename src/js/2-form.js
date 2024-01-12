@@ -2,12 +2,9 @@ const form = document.querySelector('.feedback-form');
 const keyValue = 'feedback-form-state';
 
 form.addEventListener('input', event => {
-  const formData = new FormData(form);
-  const objectForm = {};
-  formData.forEach((value, key) => {
-    objectForm[key] = value.trim();
-  });
-  localStorage.setItem(keyValue, JSON.stringify(objectForm));
+  const inputText = event.target.value;
+
+  localStorage.setItem(keyValue, inputText);
 });
 
 form.addEventListener('submit', event => {
