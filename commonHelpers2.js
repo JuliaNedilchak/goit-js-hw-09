@@ -1,2 +1,0 @@
-import"./assets/modulepreload-polyfill-ec808ebb.js";/* empty css                      */const e=document.querySelector(".feedback-form"),o="feedback-form-state";e.addEventListener("input",t=>{const a=t.target.value;localStorage.setItem(o,a)});e.addEventListener("submit",t=>{const a=e.elements.email.value,s=e.elements.message.value;if(t.preventDefault(),!a||!s)alert("empty fields");else{const l=JSON.parse(localStorage.getItem(o));localStorage.removeItem(o),e.reset(),console.log(l)}});
-//# sourceMappingURL=commonHelpers2.js.map
