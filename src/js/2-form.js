@@ -1,10 +1,11 @@
 const form = document.querySelector('.feedback-form');
-const keyValue = 'feedback-form-state';
+const STORAGE_KEY = 'feedback-form-state';
+const formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 
 form.addEventListener('input', event => {
-  const inputText = event.target.value;
+  formData[event.target.name] = event.target.value.trim();
 
-  localStorage.setItem(keyValue, inputText);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 });
 
 form.addEventListener('submit', event => {
@@ -14,9 +15,9 @@ form.addEventListener('submit', event => {
   if (!email || !message) {
     alert('empty fields');
   } else {
-    const storageValue = JSON.parse(localStorage.getItem(keyValue));
-    localStorage.removeItem(keyValue);
+    const formObject = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    localStorage.removeItem(STORAGE_KEY);
     form.reset();
-    console.log(storageValue);
+    console.log(formObject);
   }
 });
