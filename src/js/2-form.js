@@ -7,7 +7,17 @@ form.addEventListener('input', event => {
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 });
-
+try {
+  const initialFormData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  if (typeof initialFormData === 'object' && initialFormData !== null) {
+    Array.from(form.elements).forEach(element => {
+      const storageValue = initialFormData[element.name];
+      element.value = storageValue;
+    });
+  }
+} catch (e) {
+  console.error('value is not an object');
+}
 form.addEventListener('submit', event => {
   const email = form.elements.email.value;
   const message = form.elements.message.value;
